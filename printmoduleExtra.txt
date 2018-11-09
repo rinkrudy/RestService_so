@@ -1,0 +1,371 @@
+void ResultRender::WeatherInfo_Get(void *pResult)
+{
+    DB_WeatherInfo *data = (DB_WeatherInfo *)malloc(sizeof(DB_WeatherInfo));
+    memset(data, 0, sizeof(DB_WeatherInfo));
+
+    DB_WeatherInfo *s = (DB_WeatherInfo *)pResult;
+    int rows = malloc_usable_size(pResult) / sizeof(DB_WeatherInfo);
+    printf("rows: %d\n", rows);
+    puts("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    puts("  id dateTime latitude longitude airTemp airPress waterTemp salinity windDirecton windSpeed waveDirectioin waveHeight wavePriod currentSpeed currentDirection weatherState visibility tidalEevation");
+    puts("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    for (int i = 0; i < rows; i++)
+    {
+        printf("%d, %s, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %d, %f, %f \n",
+               s->id, s->dateTime, s->latitude, s->longitude, s->airTemp,
+               s->airPress, s->waterTemp, s->salinity, s->windDirection, s->windSpeed,
+               s->waveDirection, s->waveHeight, s->wavePeriod, s->currentSpeed, s->currentDirection,
+               s->weatherState, s->visibility, s->tidalElevation);
+        s++;
+    }
+}
+
+void ResultRender::RestrictedSpeedAreaInfo_Get(void *pResult)
+{
+    DB_RestrictedSpeedAreaInfo *data = (DB_RestrictedSpeedAreaInfo *)malloc(sizeof(DB_RestrictedSpeedAreaInfo));
+    memset(data, 0, sizeof(DB_RestrictedSpeedAreaInfo));
+
+    DB_RestrictedSpeedAreaInfo *s = (DB_RestrictedSpeedAreaInfo *)pResult;
+    int rows = malloc_usable_size(pResult) / sizeof(DB_RestrictedSpeedAreaInfo);
+    printf("rows: %d\n", rows);
+    puts("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    puts("  dataTime id name limitSpeed vetexCnt lonlatString ");
+    puts("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    for (int i = 0; i < rows; i++)
+    {
+        printf("%s, %s, %s, %d, %d, %s \n",
+               s->dataTime, s->id, s->name, s->limitSpeed, s->vetexCnt, s->lonLatString);
+        s++;
+    }
+}
+
+void ResultRender::OilTankerProhibition_Get(void *pResult)
+{
+    DB_OilTankerProhibition *data = (DB_OilTankerProhibition *)malloc(sizeof(DB_OilTankerProhibition));
+    memset(data, 0, sizeof(DB_OilTankerProhibition));
+
+    DB_OilTankerProhibition *s = (DB_OilTankerProhibition *)pResult;
+    int rows = malloc_usable_size(pResult) / sizeof(DB_OilTankerProhibition);
+    printf("rows: %d\n", rows);
+    puts("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    puts("  dataTime id name vetexCnt lonLatString ");
+    puts("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    for (int i = 0; i < rows; i++)
+    {
+        printf("%s, %s, %s, %d, %s \n",
+               s->dataTime, s->id, s->name, s->vetexCnt, s->lonLatString);
+        s++;
+    }
+}
+
+void ResultRender::CoastlineInfo_Get(void *pResult)
+{
+    DB_CoastlineInfo *data = (DB_CoastlineInfo *)malloc(sizeof(DB_CoastlineInfo));
+    memset(data, 0, sizeof(DB_CoastlineInfo));
+
+    DB_CoastlineInfo *s = (DB_CoastlineInfo *)pResult;
+    int rows = malloc_usable_size(pResult) / sizeof(DB_CoastlineInfo);
+    printf("rows: %d\n", rows);
+    puts("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    puts("  dataTime id name objCnt vetexCnt lonLatString ");
+    puts("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    for (int i = 0; i < rows; i++)
+    {
+        printf("%s, %s, %s, %d, %d, %s \n",
+               s->dataTime, s->id, s->name, s->objCnt, s->vetexCnt, s->lonLatString);
+        s++;
+    }
+}
+
+void ResultRender::FishingAreaInfo_Get(void *pResult)
+{
+    DB_FishingAreaInfo *data = (DB_FishingAreaInfo *)malloc(sizeof(DB_FishingAreaInfo));
+    memset(data, 0, sizeof(DB_FishingAreaInfo));
+    DB_FishingAreaInfo *s = (DB_FishingAreaInfo *)pResult;
+    int rows = malloc_usable_size(pResult) / sizeof(DB_FishingAreaInfo);
+    printf("rows: %d\n", rows);
+    puts("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    puts("  dataTime id name areaType vetexCnt lonLatString");
+    puts("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    for (int i = 0; i < rows; i++)
+    {
+        printf("%s, %s, %s, %d, %d, %s \n",
+               s->dataTime, s->id, s->name, s->areaType, s->vetexCnt, s->lonLatString);
+        s++;
+    }
+}
+
+void ResultRender::LimitedAreaInfo_Get(void *pResult)
+{
+    DB_LimitedAreaInfo *data = (DB_LimitedAreaInfo *)malloc(sizeof(DB_LimitedAreaInfo));
+    memset(data, 0, sizeof(DB_LimitedAreaInfo));
+
+    DB_LimitedAreaInfo *s = (DB_LimitedAreaInfo *)pResult;
+    int rows = malloc_usable_size(pResult) / sizeof(DB_LimitedAreaInfo);
+    printf("rows: %d\n", rows);
+    puts("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    puts("  dataTime id name type timeS timeE vetexCnt lonLatString");
+    puts("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    for (int i = 0; i < rows; i++)
+    {
+        printf("%s, %s, %s, %d, %s, %s, %d, %s \n",
+               s->dataTime, s->id, s->name, s->type, s->timeS, s->timeE, s->vetexCnt, s->lonLatString);
+        s++;
+    }
+}
+
+void ResultRender::LowDepthreefInfo_Get(void *pResult)
+{
+    DB_LowDepthReefInfo *data = (DB_LowDepthReefInfo *)malloc(sizeof(DB_LowDepthReefInfo));
+    memset(data, 0, sizeof(DB_LowDepthReefInfo));
+
+    DB_LowDepthReefInfo *s = (DB_LowDepthReefInfo *)pResult;
+    int rows = malloc_usable_size(pResult) / sizeof(DB_LowDepthReefInfo);
+    printf("rows: %d\n", rows);
+    puts("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    puts("  dataTime id name type vetexCnt lonLatString");
+    puts("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    for (int i = 0; i < rows; i++)
+    {
+        printf("%s, %s, %s, %d, %d, %s \n",
+               s->dataTime, s->id, s->name, s->type, s->vetexCnt, s->lonLatString);
+        s++;
+    }
+}
+
+void ResultRender::DepthInfo_Get(void *pResult)
+{
+    DB_DepthInfo *data = (DB_DepthInfo *)malloc(sizeof(DB_DepthInfo));
+    memset(data, 0, sizeof(DB_DepthInfo));
+
+    DB_DepthInfo *s = (DB_DepthInfo *)pResult;
+    int rows = malloc_usable_size(pResult) / sizeof(DB_DepthInfo);
+    printf("rows: %d\n", rows);
+    puts("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    puts("  name vetex lonLatString depth");
+    puts("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    for (int i = 0; i < rows; i++)
+    {
+        printf("%s, %d, %s, %s \n",
+               s->name, s->vetexCnt, s->lonLatString, s->depth);
+        s++;
+    }
+}
+
+void ResultRender::EtcInfo_Get(void *pResult)
+{
+    DB_ETCInfo *data = (DB_ETCInfo *)malloc(sizeof(DB_ETCInfo));
+    memset(data, 0, sizeof(DB_ETCInfo));
+
+    DB_ETCInfo *s = (DB_ETCInfo *)pResult;
+    int rows = malloc_usable_size(pResult) / sizeof(DB_ETCInfo);
+    printf("rows: %d\n", rows);
+    puts("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    puts("  id name dateTime infoType");
+    puts("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    for (int i = 0; i < rows; i++)
+    {
+        printf("%d, %s, %s, %d \n",
+               s->id, s->name, s->dateTime, s->infoType);
+        s++;
+    }
+}
+
+void ResultRender::EtcInfoEtc_Get(void *pResult)
+{
+    DB_ETCInfo_Etc *data = (DB_ETCInfo_Etc *)malloc(sizeof(DB_ETCInfo_Etc));
+    memset(data, 0, sizeof(DB_ETCInfo_Etc));
+
+    DB_ETCInfo_Etc *s = (DB_ETCInfo_Etc *)pResult;
+    int rows = malloc_usable_size(pResult) / sizeof(DB_ETCInfo_Etc);
+    printf("rows: %d\n", rows);
+    puts("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    puts("  id etcId latitude longitude");
+    puts("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    for (int i = 0; i < rows; i++)
+    {
+        printf("%d, %d, %s, %s \n",
+               s->id, s->etcId, s->latitude, s->longitude);
+        s++;
+    }
+}
+
+void ResultRender::OptimumRouteInfo_Get(void *pResult)
+{
+    DB_OptimumRouteInfo *data = (DB_OptimumRouteInfo *)malloc(sizeof(DB_OptimumRouteInfo));
+    memset(data, 0, sizeof(DB_OptimumRouteInfo));
+
+    DB_OptimumRouteInfo *s = (DB_OptimumRouteInfo *)pResult;
+    int rows = malloc_usable_size(pResult) / sizeof(DB_OptimumRouteInfo);
+    printf("rows: %d\n", rows);
+    puts("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    puts("  id shipMmsi routeCount type routeDate latTime expectArriveTime");
+    puts("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    for (int i = 0; i < rows; i++)
+    {
+        printf("%d, %d, %d, %d, %s, %s, %s \n",
+               s->id, s->shipMmsi, s->routeCount, s->type, s->routeDate, s->lastTime, s->expectArriveTime);
+        s++;
+    }
+}
+
+void ResultRender::OptimumRouteInfoEtc_Get(void *pResult)
+{
+    DB_OptimumRouteInfo_Etc *data = (DB_OptimumRouteInfo_Etc *)malloc(sizeof(DB_OptimumRouteInfo_Etc));
+    memset(data, 0, sizeof(DB_OptimumRouteInfo_Etc));
+
+    DB_OptimumRouteInfo_Etc *s = (DB_OptimumRouteInfo_Etc *)pResult;
+    int rows = malloc_usable_size(pResult) / sizeof(DB_OptimumRouteInfo_Etc);
+    printf("rows: %d\n", rows);
+    puts("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    puts("  id etcId countNumber latitude longitude speed course nextDistance");
+    puts("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    for (int i = 0; i < rows; i++)
+    {
+        printf("%d, %d, %d, %f, %f, %f, %f, %s\n",
+               s->id, s->etcId, s->countNumber, s->latitude, s->longitude, s->speed, s->course, s->nextDistance);
+        s++;
+    }
+}
+
+
+
+
+
+
+
+void ResultRender::VulnerabilityAnalysis_Get(void *pResult)
+{
+    DB_VulnerabilityAnalysis *data = (DB_VulnerabilityAnalysis *)malloc(sizeof(DB_VulnerabilityAnalysis));
+    memset(data, 0, sizeof(DB_VulnerabilityAnalysis));
+
+    DB_VulnerabilityAnalysis *s = (DB_VulnerabilityAnalysis *)pResult;
+    int rows = malloc_usable_size(pResult) / sizeof(DB_VulnerabilityAnalysis);
+    printf("rows: %d\n", rows);
+    puts("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    puts("  dateTime sVAResult vBRSResult rSSResult");
+    puts("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    for (int i = 0; i < rows; i++)
+    {
+        //printf("%s\n", s->sea);
+        printf("%s, %s, %s, %s\n",s->dateTime, s->sVAResult, s->vBRSResult, s->rSSResult);
+        s++;
+    }
+
+}
+
+void ResultRender::NavigationViolationa_Get(void *pResult)
+{
+    DB_NavigationViolation *data = (DB_NavigationViolation *)malloc(sizeof(DB_NavigationViolation));
+    memset(data, 0, sizeof(DB_NavigationViolation));
+
+    DB_NavigationViolation *s = (DB_NavigationViolation *)pResult;
+    int rows = malloc_usable_size(pResult) / sizeof(DB_NavigationViolation);
+    printf("rows: %d\n", rows);
+    puts("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    puts("  dateTime mmsi name type missCnt missTime missCode missString");
+    puts("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    for (int i = 0; i < rows; i++)
+    {
+        //printf("%s\n", s->sea);
+        printf("%s, %s, %s, %d, %d, %s, %d, %s\n",s->dateTime, s->mmsi, s->name, s->type, s->missCnt, s->missTime, s->missCode, s->missString);
+        s++;
+    }
+
+}
+void ResultRender::CollisionRisk_Get(void *pResult)
+{
+    DB_CollisionRisk *data = (DB_CollisionRisk *)malloc(sizeof(DB_CollisionRisk));
+    memset(data, 0, sizeof(DB_CollisionRisk));
+
+    DB_CollisionRisk *s = (DB_CollisionRisk *)pResult;
+    int rows = malloc_usable_size(pResult) / sizeof(DB_CollisionRisk);
+    printf("rows: %d\n", rows);
+    puts("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    puts("  dateTime mmsi name type risk");
+    puts("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    for (int i = 0; i < rows; i++)
+    {
+        //printf("%s\n", s->sea);
+        printf("%s, %s, %s, %d, %f\n", s->dateTime, s->mmsi, s->name, s->type, s->risk);
+        s++;
+    }
+
+}
+void ResultRender::StrandingRisk_Get(void *pResult)
+{
+    DB_StrandingRisk *data = (DB_StrandingRisk *)malloc(sizeof(DB_StrandingRisk));
+    memset(data, 0, sizeof(DB_StrandingRisk));
+
+    DB_StrandingRisk *s = (DB_StrandingRisk *)pResult;
+    int rows = malloc_usable_size(pResult) / sizeof(DB_StrandingRisk);
+    printf("rows: %d\n", rows);
+    puts("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    puts("  dateTime mmsi name type risk");
+    puts("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    for (int i = 0; i < rows; i++)
+    {
+        //printf("%s\n", s->sea);
+        printf("%s, %s, %s, %d, %f,\n", s->dateTime, s->mmsi, s->name, s->type, s->risk);
+        s++;
+    }
+}
+void ResultRender::NearMissViolation(void *pResult)
+{   
+    DB_NearMissViolation *data = (DB_NearMissViolation *)malloc(sizeof(DB_NearMissViolation));
+    memset(data, 0, sizeof(DB_NearMissViolation));
+
+    DB_NearMissViolation *s = (DB_NearMissViolation *)pResult;
+    int rows = malloc_usable_size(pResult) / sizeof(DB_NearMissViolation);
+    printf("rows: %d\n", rows);
+    puts("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    puts("  dateTime mmsi name type missCnt missTime missCode missString");
+    puts("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    for (int i = 0; i < rows; i++)
+    {
+        //printf("%s\n", s->sea);
+         printf("%s, %s, %s, %d, %d, %s, %d, %s\n", s->dateTime, s->mmsi, s->name, s->type, s->missCnt, s->missTime, s->missCode, s->missString);
+        s++;
+    }
+
+}
+void ResultRender::NormalOperation_Get(void *pResult)
+{
+    DB_NormalOperation *data = (DB_NormalOperation *)malloc(sizeof(DB_NormalOperation));
+    memset(data, 0, sizeof(DB_NormalOperation));
+
+    DB_NormalOperation *s = (DB_NormalOperation *)pResult;
+    int rows = malloc_usable_size(pResult) / sizeof(DB_NormalOperation);
+    printf("rows: %d\n", rows);
+    puts("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    puts("  dateTime id name vertexCnt latitude longitude gpsString");
+    puts("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    for (int i = 0; i < rows; i++)
+    {
+        //printf("%s\n", s->sea);
+         printf("%s, %s, %s, %d, %d, %d, %s\n", s->dateTime, s->id, s->name, s->vertexCnt, s->latitude, s->longitude, s->gpsString);
+        s++;
+    }
+}
+
+void ResultRender::AccidentAdvice_Get(void *pResult){
+
+DB_AccidentAdvice *data = (DB_AccidentAdvice *)malloc(sizeof(DB_AccidentAdvice));
+    memset(data, 0, sizeof(DB_AccidentAdvice));
+
+    DB_AccidentAdvice *s = (DB_AccidentAdvice *)pResult;
+    int rows = malloc_usable_size(pResult) / sizeof(DB_AccidentAdvice);
+    printf("rows: %d\n", rows);
+    puts("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    puts("  dateTime accidentTime oSMmsi tSMmsi accidentLatitude accidentLongitude accidentArea");
+    puts("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    for (int i = 0; i < rows; i++)
+    {
+        //printf("%s\n", s->sea);
+         printf("%s, %s, %s, %s, %d, %d, %d\n", s->dateTime, s->accidentTime, s->oSMmsi, s->tSMmsi, s->accidentLatitude, s->accidentLongitude, s->accidentArea);
+        s++;
+    }
+}
+
+
+
